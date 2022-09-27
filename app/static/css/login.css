@@ -1,0 +1,106 @@
+body{
+
+   background-image: url("../iconos/bg_login2.png");
+   background-color: #ccc;
+   background-size: 100% 100%;
+}
+.escudo{
+  opacity: 0.10;
+
+
+}
+ #wrapper {
+    overflow-x: hidden;
+ }
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.bg-green-light{
+  background-color: #1E5B4D !important;
+
+}
+.bg-green-strong{
+  background-color: #13322B  !important;
+
+}
+.mb-gold{
+  border-bottom: 4px solid #DCCAA5 !important;
+
+}
+.bg-green-strong-sm{
+  background-color: #13322B  !important;
+  color: white;
+  border: 1px solid #1E5B4D;
+}
+.bg-green-strong-sm:hover{
+  background-color: #1E5B4D !important;
+  color: white;
+}
+.bg-green-strong-sm:active{
+  color: #DCCAA5;
+}
+.border-gold{
+  border: 1px solid #DCCAA5 !important;
+
+}
+
+
+input[type=text]{
+  border:5px;
+  padding:5px;
+  border-radius:0px 0px 0px 0px;
+  background-image:url(../iconos/exp.png);
+  background-repeat:no-repeat;
+  background-position:right;
+  }
+  
+
+input[type=password]{
+  
+  border:5px;
+  padding:5px;
+  border-radius:0px 0px 0px 0px;
+  background-image:url(../iconos/pas.png);
+  background-repeat:no-repeat;
+  background-position:right;
+
+  }

@@ -1,0 +1,69 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Registro</h1>{%endblock%}
+
+
+
+{% block content %}
+
+
+{%  with messages = get_flashed_messages() %}
+{%  if messages %}
+{%  for message in messages %}
+{%  if message == 1  %}
+	<div class=" m-1 alert alert-danger" role="alert">Error</div>
+{%  else  %}
+	<div class=" m-1 alert alert-success" role="alert">Registro correcto</div>
+{%  endif %} 
+  		
+	
+{%  endfor %}
+{%  endif %} 
+{%	endwith %}
+
+
+	 <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+	    <div class="input-group  m-1">  
+	       
+	        {{ form.name.label(class='col-md-2') }}
+	        {{ form.name(size=64, class='form-control col-md-10 ',  id='name') }}<br><br>
+	        {% for error in form.name.errors %}
+	        <span style="color: red;">{{ error }}</span>
+	        {% endfor %}
+	       
+	    </div>
+	    <div class="input-group m-1">  
+	        {{ form.edad.label(class='col-md-2') }}
+	        {{ form.edad(class='form-control col-md-10 ', id='edad') }}<br>
+	        {% for error in form.edad.errors %}
+	         <span style="color: red;">{{ error }}</span>
+	          <style> #edad {border-color: red;}  </style>
+	        {% endfor %}
+	        
+	    </div>
+	    <div class="input-group  m-1">  
+	        
+	        {{ form.password.label(class='col-md-2') }}
+	        {{ form.password(class='form-control col-md-10') }}<br>
+	        {% for error in form.password.errors %}
+	        <span style="color: red;">{{ error }}</span>
+	        {% endfor %}
+	    </div>
+
+	    <div class="input-group m-1">  
+	        {{ form.descripcion.label(class='col-md-2') }}
+	        {{ form.descripcion(class='form-control col-md-10') }}<br>
+	        {% for error in form.descripcion.errors %}
+	         <span style="color: red;">{{ error }}</span>
+	        {% endfor %}
+	        
+	    </div>
+	    
+	        <div class="row justify-content-start m-1">
+	            {{ form.submit(class='btn btn-dark col-md-3 ') }}
+	        </div>
+
+
+    </form>
+	
+{% endblock %}

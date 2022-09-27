@@ -1,0 +1,99 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Registro</h1>{%endblock%}
+
+
+
+{% block content %}
+
+
+{%  with messages = get_flashed_messages() %}
+{%  if messages %}
+{%  for message in messages %}
+	<div class=" m-1 alert alert-success" role="alert">{{ message }}</div>
+{%  endfor %}
+{%  endif %} 
+{%	endwith %}
+
+{% if error %}
+<div class=" m-1 alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
+
+
+
+		<div class="card mt-4 col-md-8 mx-auto" >
+		  <div class="card-header"> <h4>Registro de usuarios </h4> </div>
+		  <div class="card-body">
+
+		  	<div class="col-md-12  " style="border:1px solid #f1f1f1;background: #fefefe;">
+	
+		  	
+		  			<form action="" method="post" novalidate>
+				        {{ form.hidden_tag() }}
+					   
+					    <div class="row col-md-11 m-2">  
+					        {{ form.username.label(class='form-label ml-0') }}
+					        {{ form.username(class='form-control',  id='username') }}<br><br>
+					        {% for error in form.username.errors %}
+					        <span  class="d-none">{{ error }}</span>
+					        <style> #username {border-color: red;}  </style>
+					        {% endfor %}
+					       
+					    </div>
+					    <div class="row col-md-11 m-2">  
+					        {{ form.password1.label(class='form-label ml-0') }}
+					        {{ form.password1(class='form-control', id='password1') }}<br>
+					        {% for error in form.password1.errors %}
+					         <span class="d-none" style="color: red;">{{ error }}</span>
+					          <style> #password1 {border-color: red;}  </style>
+					        {% endfor %}
+					        
+					    </div>
+					    <div class="row col-md-11 m-2">  
+					        
+					        {{ form.password2.label(class='form-label ml-0') }}
+					        {{ form.password2(class='form-control', id='password2') }}<br>
+					        {% for error in form.password2.errors %}
+					        <span style="color: red;">{{ error }}</span>
+					        <style> #password2 {border-color: red;}  </style>
+					        {% endfor %}
+					    </div>
+
+					    <div class="row col-md-11 m-2">  
+					        {{ form.idelemento.label(class='form-label ml-0') }}
+					        {{ form.idelemento(class='form-control select ', id='idelemento') }}<br>
+					        {% for error in form.idelemento.errors %}
+					         <span class="d-none" style="color: red;">{{ error }}</span>
+					         <style> #idelemento {border-color: red;}  </style>
+					        {% endfor %}
+					        
+					    </div>
+					    
+					     <div class="row col-md-11 m-2">  
+					        {{ form.idnivel.label(class='form-label ml-0') }}
+					        {{ form.idnivel(class='form-control', id='idnivel') }}<br>
+					        {% for error in form.idnivel.errors %}
+					         <span class="d-none"  style="color: red;">{{ error }}</span>
+					         <style> #idnivel {border-color: red;}  </style>
+					        {% endfor %}
+					        
+					    </div>
+					    
+					        <div class="row justify-content-start m-1">
+					            {{ form.submit(class='btn btn-dark col-md-3 ') }}
+					        </div>
+
+
+				    </form>
+
+				    </div>
+
+		  </div> <!-- div class="card-body"  -->
+		  <div class="card-footer text-muted"></div>
+		</div>	
+
+	 
+	
+	
+	
+
+{% endblock %}

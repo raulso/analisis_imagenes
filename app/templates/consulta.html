@@ -1,0 +1,53 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Titulo</h1>{%endblock%}
+{% block content %}
+
+ 
+           
+
+
+	<div class="table-responsive-sm col-sm-12 m-2 mt-3  p-2 border">
+	<table class="table table-sm table-bordered  border-muted table-striped" id='example'>
+	    <thead class="table-dark">
+	    	<tr>
+
+	        <th scope="col">Fecha Publicacion </th>
+	        <th scope="col">usuario</th>
+	        <th scope="col">nota</th>
+	        <th scope="col">tweet_url</th>
+	        <th scope="col">id_tipo_publicacion</th>
+	        <th scope="col">idestado</th>
+	        <th scope="col">fecha_carga</th>
+	        <th scope="col">cuenta_tweeter</th>
+	        </tr>
+	    </thead>
+    	<tbody>
+    		{% for book in datos %}
+    		<tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>{{ book[2] }}</td>
+                <td>{{ book[3] }}</td>
+                <td>{{ book[4] }}</td>
+                <td>{{ book[5] }}</td>
+                <td>{{ book[6] }}</td>
+                <td>{{ book[7] }}</td>
+            </tr>
+             {% endfor %}
+        </tbody>
+    	</table>
+
+
+
+
+   	<script>
+       $(document).ready(function() {
+
+       			//$("#staticBackdrop").modal('show');
+                 opcion_tablas(5,5,610);
+
+                //$('#example').DataTable();
+        });
+	</script>
+</div>
+{% endblock %}

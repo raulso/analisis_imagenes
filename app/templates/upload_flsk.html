@@ -1,0 +1,60 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Registro</h1>{%endblock%}
+
+{% block content %}
+	
+	<div class="card mt-4">
+	  <div class="card-header">
+	    <h2>Carga de imagenes</h2>
+	  </div>
+	  <div class="card-body">
+	    <blockquote class="blockquote mb-0">
+  			<form action="" method="post" enctype="multipart/form-data" novalidate>
+			  
+			    {{ form.hidden_tag() }}
+			    <div class="input-group mb-3">
+				      <!--  {{ form.files.label }} -->
+				        {{ form.files(class='form-control' , id='files', multiple='true')  }}
+				        {{ form.submit(class='input-group-text') }}
+				</div>
+				<div class="m-0 text-sm">
+				      {% for error in form.files.errors %}
+				        	<style> #files {border-color: red;}  </style>
+				        	<span style="color: red;">{{ error }}</span>
+				        {% endfor %}
+				</div>
+						
+			</form>
+		    <br>
+	      <footer class="blockquote-footer">Solo imagenes en formato <cite title="Source Title"> *.JPG</cite></footer>
+	    </blockquote>
+	  </div>
+	  <div class="card-footer text-muted">
+	  </div>
+	</div>	
+
+	
+	<div class="card mt-4">
+	  <div class="card-header"> <h4>Resultado </h4> </div>
+	  <div class="card-body">
+	  	
+	  	{%- if files %}
+		  <h2>Files</h2>
+		  <ul>
+			  <div class="row ">
+				  {%- for file in files %}
+				  			<img src="{{ url_for('display_image',directorio=directorio, filename=file) 	}}" style="width:250px"  class=" border img-fluid">
+				  			<!-- img src = "../{{directorio}}/{{file}}" width = "400" height = "400" -->
+
+
+				  	 <!--li><a href="/download/{{ code }}">{{ file }}</a></li-->
+				  {% endfor %}
+			  </div>
+		  </ul>
+		{% endif %}
+
+	  </div> <!-- div class="card-body"  -->
+	  <div class="card-footer text-muted"></div>
+	</div>	
+
+{% endblock %}

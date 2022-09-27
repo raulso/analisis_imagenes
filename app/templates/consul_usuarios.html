@@ -1,0 +1,51 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Titulo</h1>{%endblock%}
+{% block content %}
+
+	<div class="table-responsive-sm col-sm-12 m-2 mt-3  p-2 border">
+
+		<p class="fs-2 fw-bolder font-monospace text-secondary text-center">Lista de usuarios</p>
+	<table class="table table-sm table-bordered  border-muted table-striped table-hover" id='example'>
+	    <thead class="table-light">
+	    	<tr>
+
+	        <th scope="col">Expediente</th>
+	        <th scope="col">Nombre</th>
+	        <th scope="col">Usuario</th>
+	        <th scope="col">Rol</th>
+	        <th scope="col">Opciones</th>
+	       
+	        </tr>
+	    </thead>
+    	<tbody>
+    		{% for book in datos %}
+    		<!--  id_imagen,nombre_imagen,fecha_carga, directorio_src, hora_carga,directorio_prc -->
+    		<tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>{{ book[2] }}</td>
+                <td>{{ book[3] }}</td>
+                <td> <img src = "{{url_for ('static', filename = 'iconos/edit.jpg')}}" width = "30px" height = "25px" alt="Ver detalle" data-bs-toggle="modal" href="#" role="button" onclick="mostrarDatosEl('{{ book[6] }}')"  title="procesada" />
+                	<img src = "{{url_for ('static', filename = 'iconos/edit_user.jpg')}}" width = "30px" height = "25px" alt="Ver detalle" data-bs-toggle="modal" href="#" role="button" onclick="mostrarDatosUs('{{ book[6] }}')" title="original" />
+</td>
+              
+                
+            </tr>
+             {% endfor %}
+        </tbody>
+    	</table>
+
+
+
+    		<script>
+		       $(document).ready(function() {
+		       			//$("#staticBackdrop").modal('show');
+		                 opcion_tablas(5,5,330);
+		                //$('#example').DataTable();
+		        });
+			</script>
+
+
+	</div>
+
+{% endblock %}

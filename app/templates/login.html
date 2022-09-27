@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+
+   
+    {% block scripts %}
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.5.0.2.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- script type="text/javascript" charset="utf8" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
+    <script src="{{ url_for('static', filename='js/jquery-ui.1.12.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+  {% endblock %}
+
+
+</head>
+
+<body bgcolor="" class="m-0 vh-100 row justify-content-center align-items-center" style="">
+   
+    <div class="card mt-4 col-md-4 mx-auto  shadow-lg p-3 mb-5 rounded  " style="z-index: 2;background: rgba(255, 255, 255, 0.9);" >
+
+         <div class="  mx-auto mb-2  text-center" style="z-index: 1;" >
+            <img src="{{url_for('static', filename='iconos/escudogn1.png')}}" style="width: 30%;" class="" />
+        </div> 
+
+          <div class="card-header  text-center text-secondary" > <h4>Iniciar sesión </h4> </div>
+          <div class="card-body">
+
+            <div class="col-md-12  " style="border:1px solid #dedede;">
+    
+            
+                    <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                       
+
+                        <div class="row form-group col-md-11 m-2">  
+                            {{ form.username.label(class='form-label ml-0 ') }}
+                            {{ form.username(class='form-control has-feedback border' ,  id='username') }}<br><br>
+                            {% for error in form.username.errors %}
+                            <span  class="d-none" style="color: red;">{{ error }}</span>
+                            <style> #username {border-color: red;}  </style>
+                            {% endfor %}
+                        </div>
+                        <div class="row col-md-11 m-2">  
+                            {{ form.password.label(class='form-label ml-0') }}
+                            {{ form.password(class='form-control has-feedback border', id='password') }}<br>
+                            {% for error in form.password.errors %}
+                             <span class="d-none" style="color: red;">{{ error }}</span>
+                              <style> #password {border-color: red;}  </style>
+                            {% endfor %}
+                            
+                        </div>
+                        
+                        <div class="row justify-content-start m-1">
+                                {{ form.submit(class='btn btn-dark col-md-3 ') }}
+                        </div>
+
+                            {%- if msg %}
+                                <div class="alert alert-danger" role="alert">
+                                        Usuario o contraseña incorrecta
+                                </div>
+                            {% endif %}
+
+
+                    </form>
+
+                    </div>
+
+          </div> <!-- div class="card-body"  -->
+          <div class="card-footer text-muted"></div>
+        </div> 
+        <div class="position-absolute  display-5 top-0 start-50 translate-middle-x m-0 vh-100 row justify-content-center font-weight-bold text-light shadow-lg p-3 mb-5 rounded" style="z-index: 1; font-weight:normal; font-style: italic;" >
+            Sistema de analisis de imagenes
+        </div> 
+        <div class="position-absolute  escudo opacity-50 bg-opacity-50" style="z-index: 1;" >
+            <img src="{{url_for('static', filename='iconos/escudogn.png')}}" style="width: 30%;" class="opacity-50 bg-opacity-50" />
+        </div> 
+
+
+
+
+
+</body>
+</html>

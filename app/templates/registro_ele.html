@@ -1,0 +1,114 @@
+{% extends './index.html'  %}
+{% block title %}<h1>Registro</h1>{%endblock%}
+
+
+
+{% block content %}
+
+
+{%  with messages = get_flashed_messages() %}
+{%  if messages %}
+{%  for message in messages %}
+	<div class=" m-1 alert alert-success" role="alert">{{ message }}</div>
+{%  endfor %}
+{%  endif %} 
+{%	endwith %}
+
+{% if error %}
+<div class=" m-1 alert alert-danger" role="alert">{{ error }}</div>
+{% endif %}
+
+
+
+		<div class="card mt-4 col-md-8 mx-auto" >
+		  <div class="card-header"> <h4>Registro de elementos </h4> </div>
+		  <div class="card-body">
+
+		  	<div class="col-md-12  " style="border:1px solid #f1f1f1;background: #fefefe;">
+	
+		  	
+		  			<form action="" method="post" novalidate>
+				        {{ form.hidden_tag() }}
+					   
+					    <div class="row col-md-11 m-2">  
+					        {{ form.nombre.label(class='form-label ml-0') }}
+					        {{ form.nombre(class='form-control',  id='nombre') }}<br><br>
+					        {% for error in form.nombre.errors %}
+					        <span  class="d-none">{{ error }}</span>
+					        <style> #nombre {border-color: red;}  </style>
+					        {% endfor %}
+					       
+					    </div>
+					    <div class="row col-md-11 m-2">  
+					        {{ form.appaterno.label(class='form-label ml-0') }}
+					        {{ form.appaterno(class='form-control', id='appaterno') }}<br>
+					        {% for error in form.appaterno.errors %}
+					         <span class="d-none" style="color: red;">{{ error }}</span>
+					          <style> #appaterno {border-color: red;}  </style>
+					        {% endfor %}
+					        
+					    </div>
+					    <div class="row col-md-11 m-2">  
+					        {{ form.apmaterno.label(class='form-label ml-0') }}
+					        {{ form.apmaterno(class='form-control', id='apmaterno') }}<br>
+					        {% for error in form.apmaterno.errors %}
+					        <span class="d-none" style="color: red;">{{ error }}</span>
+					        <style> #apmaterno {border-color: red;}  </style>
+					        {% endfor %}
+					    </div>
+					    <div class="row col-md-11 m-2">  
+					        {{ form.expediente.label(class='form-label ml-0') }}
+					        {{ form.expediente(class='form-control', id='expediente') }}<br>
+					        {% for error in form.expediente.errors %}
+					        <span class="d-none" style="color: red;">{{ error }}</span>
+					        <style> #expediente {border-color: red;}  </style>
+					        {% endfor %}
+					    </div>
+
+					    <div class="row col-md-11 m-2">  
+					        {{ form.idgrado.label(class='form-label ml-0') }}
+					        {{ form.idgrado(class='form-control select ', id='idgrado') }}<br>
+					        {% for error in form.idgrado.errors %}
+					         <span class="d-none" style="color: red;">{{ error }}</span>
+					         <style> #idgrado {border-color: red;}  </style>
+					        {% endfor %}
+					        
+					    </div>
+					    
+					     <div class="row col-md-11 m-2">  
+					        {{ form.correo.label(class='form-label ml-0') }}
+					        {{ form.correo(class='form-control', id='correo') }}<br>
+					        {% for error in form.correo.errors %}
+					        <span class="d-none" style="color: red;">{{ error }}</span>
+					        <style> #correo {border-color: red;}  </style>
+					        {% endfor %}
+					    </div>
+
+					    <div class="row col-md-11 m-2">  
+					        {{ form.telefono.label(class='form-label ml-0') }}
+					        {{ form.telefono(class='form-control', id='telefono') }}<br>
+					        {% for error in form.telefono.errors %}
+					        <span class="d-none"  style="color: red;">{{ error }}</span>
+					        <style> #telefono {border-color: red;}  </style>
+					        {% endfor %}
+					    </div>
+					    
+					        <div class="row justify-content-start m-1">
+					            {{ form.submit(class='btn btn-dark col-md-3 ') }}
+					        </div>
+
+
+				    </form>
+
+				    </div>
+
+		  </div> <!-- div class="card-body"  -->
+		  <div class="card-footer text-muted"></div>
+		</div>	
+
+	 
+	
+	
+	
+
+{% endblock %}

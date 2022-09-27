@@ -1,0 +1,23 @@
+
+	<div class="card mt-4">
+	  <div class="card-header"> <h4>Carpeta ID {{ lote }}</h4> </div>
+	  <div class="card-body">
+	  	
+	  	{%- if files %}
+		  <h2>Files</h2>
+		  <ul>
+			  <div class="row ">
+				  {%- for file in files %}
+				  			<img src="{{ url_for('display_image',directorio=directorio, filename=file) 	}}" style="width:250px"  class=" border img-fluid">
+				  			<!-- img src = "../{{directorio}}/{{file}}" width = "400" height = "400" -->
+
+
+				  	 <!--li><a href="/download/{{ code }}">{{ file }}</a></li-->
+				  {% endfor %}
+			  </div>
+		  </ul>
+		{% endif %}
+
+	  </div> <!-- div class="card-body"  -->
+	  <div class="card-footer text-muted"></div>
+	</div>	
